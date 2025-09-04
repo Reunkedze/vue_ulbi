@@ -36,7 +36,12 @@
         type="text"
         placeholder="Описание"
     >
-    <button class="btn" @click="createPost">Создать</button>
+    <my-button
+        style="align-self: flex-end; margin-top: 15px;"
+        @click="createPost"
+    >
+      Создать
+    </my-button>
   </form>
 </template>
 
@@ -45,15 +50,6 @@
 form {
   display: flex;
   flex-direction: column;
-}
-
-.btn {
-  margin-top: 15px;
-  align-self: flex-end;
-  padding: 10px 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
 }
 
 .input {
