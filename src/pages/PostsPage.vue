@@ -60,7 +60,7 @@ export default {
       isPostsLoading: false,
       selectedSort: "",
       searchQuery: "",
-      page: 0,
+      page: 1,
       limit: 10,
       totalPages: 0,
       sortOptions: [
