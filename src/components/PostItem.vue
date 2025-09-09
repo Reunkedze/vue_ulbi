@@ -13,6 +13,7 @@ export default {
 
   <div class="post">
     <div>
+      <div><strong>{{post.id}}</strong></div>
       <div><strong>Название: </strong>{{post.title}}</div>
       <div><strong>Описание: </strong>{{post.body}}</div>
     </div>
