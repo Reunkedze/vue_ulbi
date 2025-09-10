@@ -3,6 +3,7 @@
     <h1>Страница с постами</h1>
     <my-input
         v-model="searchQuery"
+        v-focus
     />
     <div class="app__btns">
       <my-button
@@ -26,7 +27,7 @@
         v-if="!isPostsLoading"
     />
     <div v-else>Идет загрузка...</div>
-    <div ref="observer" class="observer"></div>
+    <div v-intersection="loadMorePosts" class="observer"></div>
     <!--    <div class="page__wrapper">-->
     <!--      <div-->
     <!--          v-for="pageNumber in totalPages"-->
@@ -60,7 +61,7 @@ export default {
       isPostsLoading: false,
       selectedSort: "",
       searchQuery: "",
-      page: 1,
+      page: 0,
       limit: 10,
       totalPages: 0,
       sortOptions: [
@@ -119,20 +120,20 @@ export default {
   },
   mounted() {
     this.fetchPosts();
-    const options = {
-      root: document.getElementById("root"),
-      rootMargin: '0px',
-      threshold: 1.0,
-    }
-
-    const callback = (entries, observer) => {
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts();
-      }
-    }
-
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(this.$refs.observer);
+    // const options = {
+    //   root: document.getElementById("root"),
+    //   rootMargin: '0px',
+    //   threshold: 1.0,
+    // }
+    //
+    // const callback = (entries, observer) => {
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.loadMorePosts();
+    //   }
+    // }
+    //
+    // const observer = new IntersectionObserver(callback, options);
+    // observer.observe(this.$refs.observer);
   },
   computed: {
     sortedPosts() {

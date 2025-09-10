@@ -27,6 +27,7 @@
     <my-input
         v-model="post.title"
         placeholder="Название"
+        v-focus
     />
     <my-input
         v-model="post.body"
